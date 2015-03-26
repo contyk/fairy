@@ -1,12 +1,12 @@
-**Fairy - Generate distribution packages, as if by magic!**
+Fairy - Generate distribution packages, as if by magic!
+-------------------------------------------------------
 
 Note Fairy is currently just a set of ideas.
 
 Watch the code slowly creep in.
 
 
-What this will be about
------------------------
+**What this will be about**
 
 Initially I wanted an easily maintainable replacement for the aging
 cpanspec, which is a tool for generating SPEC files (the core of every
