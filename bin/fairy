@@ -1,3 +1,81 @@
 #!/usr/bin/perl
 use strict;
 use warnings;
+use Getopt::Long;
+use Pod::Usage;
+
+=encoding utf8
+
+=head1 NAME
+
+fairy - Generate distribution packages, as if by magic!
+
+=head1 SYNOPSIS
+
+fairy [options] <package>
+
+=head1 DESCRIPTION
+
+Fairy attempts to generate a distribution package from the given source
+repository using the given template.  The package will be generated in
+the current working directory.
+
+=head1 OPTIONS
+
+=over 4
+
+=item B<--source|-s SOURCE>
+
+The source repository of the package.  Could be either I<file>, I<cpan>
+or I<github>.  Defaults to I<file>, if present, or I<cpan> otherwise.
+
+=item B<--template|-t TEMPLATE>
+
+The template to use for package generation.  A handful of templates
+is installed by default, others can be placed in the I<templates>
+directory.  See the FILES section.  Defaults to I<fedora-perl>.
+
+=item B<--lang|-l LANGUAGE>
+
+Some sources know what language the package is written in while some
+others are more generic (e.g. I<file> or I<github>) and will need your
+advice.  Defaults to I<perl>.
+
+=item B<--hints|-h HINTSFILE>
+
+Ammend the generated metadata.  See the HINTS FILES section for details.
+
+=back
+
+=head1 HINTS FILES
+
+...
+
+=head1 EXAMPLES
+
+    fairy App-Fairy-0.42.tar.gz
+    fairy --source cpan --template fedora-perl App::Fairy
+    fairy --source github --template fedora-perl --lang perl contyk/fairy
+
+=head1 FILES
+
+=over 4
+
+=item B<~/.fairy/templates>
+
+Directory with custom L<Template::Toolkit> template files.
+
+=back
+
+=head1 AUTHOR AND LICENSE
+
+Copyright © 2015 Petr Šabata <contyk@redhat.com>
+
+See the LICENSE file for licensing details.
+
+=cut
+
+pod2usage(-message => "Sorry, the magic is not implemented yet!\n",
+    -sections => 'SYNOPSIS|OPTIONS|EXAMPLES',
+    -verbose => 99,
+    -exitval => 1);
