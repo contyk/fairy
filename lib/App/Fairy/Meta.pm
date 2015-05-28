@@ -1,5 +1,4 @@
-package App::Fairy;
-# ABSTRACT: Fairy generates distribution packages, as if by magic!
+package App::Fairy::Meta;
 use strict;
 use warnings;
 
@@ -13,11 +12,7 @@ __END__
 
 =head1 NAME
 
-App::Fairy - Fairy generates distribution packages, as if by magic!
-
-=head1 REPOSITORY
-
-L<https://github.com/contyk/fairy>
+App::Fairy::Meta - Fairy metadata structure
 
 =head1 AUTHOR
 

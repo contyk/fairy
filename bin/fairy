@@ -17,17 +17,20 @@ fairy [options] <package>
 =head1 DESCRIPTION
 
 Fairy attempts to generate a distribution package from the given source
-repository using the given template.  The package will be generated in
-the current working directory.
+(with some I<magic>) using the given template.
+
+The idea is to simplify common packaging tasks when dealing with many
+similar packages such as language libraries from the same repository,
+various plugins et cetera.
 
 =head1 OPTIONS
 
 =over 4
 
-=item B<--source|-s SOURCE>
+=item B<--magic|-m MAGIC>
 
-The source repository of the package.  Could be either I<file>, I<cpan>
-or I<github>.  Defaults to I<file>, if present, or I<cpan> otherwise.
+Chooses the I<magic> backend to use.  Currently the only supported option
+is I<cpan>.  Defaults to I<cpan>.
 
 =item B<--template|-t TEMPLATE>
 
@@ -35,15 +38,13 @@ The template to use for package generation.  A handful of templates
 is installed by default, others can be placed in the I<templates>
 directory.  See the FILES section.  Defaults to I<fedora-perl>.
 
-=item B<--lang|-l LANGUAGE>
-
-Some sources know what language the package is written in while some
-others are more generic (e.g. I<file> or I<github>) and will need your
-advice.  Defaults to I<perl>.
-
 =item B<--hints|-h HINTSFILE>
 
 Ammend the generated metadata.  See the HINTS FILES section for details.
+
+=item B<--output|-o DIRECTORY>
+
+Where to put our output.  Defaults to the current working directory.
 
 =back
 
@@ -53,9 +54,8 @@ Ammend the generated metadata.  See the HINTS FILES section for details.
 
 =head1 EXAMPLES
 
-    fairy App-Fairy-0.42.tar.gz
-    fairy --source cpan --template fedora-perl App::Fairy
-    fairy --source github --template fedora-perl --lang perl contyk/fairy
+    fairy App-Fairy
+    fairy -m cpan -t fedora-perl -o /tmp App-Fairy
 
 =head1 FILES
 

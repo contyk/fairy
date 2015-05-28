@@ -1,0 +1,14 @@
+What we need:
+
+* Package name
+* Upstream URL
+* Source URL
+* License
+* Summary
+* Description
+* Dependencies of various types
+
+How this should work:
+
+* Collect all the params and such.
+
