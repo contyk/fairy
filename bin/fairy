@@ -30,13 +30,13 @@ various plugins et cetera.
 =item B<--magic|-m MAGIC>
 
 Chooses the I<magic> backend to use.  Currently the only supported option
-is I<cpan>.  Defaults to I<cpan>.
+is I<perl>.  Required.
 
 =item B<--template|-t TEMPLATE>
 
 The template to use for package generation.  A handful of templates
 is installed by default, others can be placed in the I<templates>
-directory.  See the FILES section.  Defaults to I<fedora-perl>.
+directory.  See the FILES section.  Defaults to I<default>.
 
 =item B<--hints|-h HINTSFILE>
 
@@ -54,8 +54,8 @@ Where to put our output.  Defaults to the current working directory.
 
 =head1 EXAMPLES
 
-    fairy App-Fairy
-    fairy -m cpan -t fedora-perl -o /tmp App-Fairy
+    fairy -mperl App-Fairy
+    fairy -m perl -t epel5 -o /tmp App-Fairy
 
 =head1 FILES
 
