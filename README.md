@@ -20,6 +20,6 @@ So, the long-term plan is:
 * Utilize templates to support various output formats (e.g. SPEC, ebuild)
 * Be smart about metadata; attempt to figure out the required dependencies (e.g. using Tangerine for perl, possibly adapt other generators for other languages)
 * Given the above, unlike cpanspec, don't bother with support for updating; this tool should only be used for generating new packages
-* Invent and support our own "hints" format to assist fully automatic packaging
+* Invent and support our own "hints" format to assist fully automatic packaging; this should include support for patches
 
 We'll see how it will work out.
