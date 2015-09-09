@@ -1,4 +1,4 @@
-package App::Fairy::Magic::CPAN;
+package App::Fairy::Magic::Perl;
 use strict;
 use warnings;
 
@@ -12,7 +12,7 @@ __END__
 
 =head1 NAME
 
-App::Fairy::Magic::CPAN - Fairy's CPAN magic
+App::Fairy::Magic::Perl - Fairy's Perl magic
 
 =head1 AUTHOR
 
