@@ -14,8 +14,6 @@ sub _update_cpan_index {
     fetch($indexurl, $indexpath);
 }
 
-_update_cpan_index();
-
 1;
 
 __END__
