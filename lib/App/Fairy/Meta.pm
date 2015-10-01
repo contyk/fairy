@@ -10,16 +10,22 @@ sub new {
     }, $class;
 }
 
+sub magic {
+    my ($self, $magic) = @_;
+    $self->{magic} = $magic if defined($magic);
+    return $self->{magic};
+}
+
 sub data {
     my ($self, $prop, $val) = @_;
-    $self->{$prop} = $val if defined($val);
-    return $self->{$prop};
+    $self->{data}->{$prop} = $val if defined($val);
+    return $self->{data}->{$prop};
 }
 
 sub delete {
     my ($self, $prop) = @_;
-    my $val = $self->{$prop};
-    delete $self->{$prop};
+    my $val = $self->{data}->{$prop};
+    delete $self->{data}->{$prop};
     return $val;
 }
 
