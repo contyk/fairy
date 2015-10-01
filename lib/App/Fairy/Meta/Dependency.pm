@@ -1,4 +1,4 @@
-package App::Fairy::Meta;
+package App::Fairy::Meta::Dependency;
 use strict;
 use warnings;
 
@@ -33,7 +33,7 @@ __END__
 
 =head1 NAME
 
-App::Fairy::Meta - Fairy metadata structure
+App::Fairy::Meta::Dependency - Fairy dependency metadata structure
 
 =head1 AUTHOR
 
