@@ -5,22 +5,21 @@ use warnings;
 sub new {
     my ($class, %args) = @_;
     bless {
-        magic => $args{magic},
-        data => {},
+        name => $args{name},
+        occurences => ref $args{occurences} eq 'ARRAY' // [],
     }, $class;
 }
 
-sub data {
-    my ($self, $prop, $val) = @_;
-    $self->{$prop} = $val if defined($val);
-    return $self->{$prop};
+sub name {
+    my $self = shift;
+    $self->{name} = shift if @_;
+    return $self->{name};
 }
 
-sub delete {
-    my ($self, $prop) = @_;
-    my $val = $self->{$prop};
-    delete $self->{$prop};
-    return $val;
+sub occurences {
+    my $self = shift;
+    $self->{occurences} = shift if @_ && ref $_[0] eq 'ARRAY';
+    return $self->{occurences};
 }
 
 1;

@@ -4,6 +4,7 @@ use warnings;
 use App::Fairy::Meta;
 use App::Fairy::Utils qw/explode fetch/;
 use File::Find::Rule;
+use File::Find::Rule::Perl;
 use File::HomeDir;
 use File::Spec;
 use Tangerine;
@@ -46,6 +47,18 @@ sub _get_distribution {
 sub _get_deps {
     my @files = @_;
     # TODO: Iterate over @files, run Tangerine and construct metadata
+    # TODO: Extra -- utilize MCE
+    my %modules;
+    for my $file (@files) {
+        my $scanner = Tangerine->new(file => $file);
+        $scanner->run;
+        for ((keys %{$scanner->package},
+                keys %{$scanner->compile},
+                keys %{$scanner->runtime})) {
+            $modules{$_} = 1;
+        }
+        # TODO: Construct/add to fairy metadata here
+    }
     return;
 }
 
@@ -80,7 +93,14 @@ sub do {
     my $olddir = File::Spec->rel2abs(File::Spec->curdir);
     chdir $dir
         or die "Cannot change directory to `${dir}': $!";
-    my $deps = _get_deps(File::Find::Rule->file()->in(File::Spec->curdir));
+    my $deps = _get_deps(
+        # XXX: This probably only works on UNIX-like systems
+        grep {
+            !/^(contrib|maint|misc)\//o &&
+            !/^xt\//o &&
+            !/^t\/.*(author|release)/o
+        } File::Find::Rule->perl_file->in(File::Spec->curdir)
+    );
     chdir $olddir
         or die "Cannot change directory back to `${olddir}': $!";
 
