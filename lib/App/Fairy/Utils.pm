@@ -23,7 +23,7 @@ sub explode {
 
 sub fetch {
     my ($src, $dst, $flags) = @_;
-    File::Path->make_path((File::Spec->splitpath($dst))[1]);
+    File::Path::make_path((File::Spec->splitpath($dst))[1]);
     my $ua = LWP::UserAgent->new(env_proxy => 1); 
     my $req = HTTP::Request->new(GET => $src);
     $req->if_modified_since((stat($dst))[9])
